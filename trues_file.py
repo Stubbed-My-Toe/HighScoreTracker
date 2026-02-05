@@ -1,7 +1,7 @@
 # TE 2nd Tic-Tac-Toe in Pseudocode.
 import time
 #TicTacToe, a game in which two players seek in alternate turns to complete a row, a column, or a diagonal with either three O's or three X's drawn in the spaces of a grid of nine squares.
-def main_game():
+def tic_tac_toe():
     print("Hello.")
     time.sleep(1)
     print("")
@@ -111,5 +111,5 @@ def main_game():
             space_check(computerChoice, "O")
     #Check if the game is over
             win()
-main_game()
+tic_tac_toe()
     
