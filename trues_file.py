@@ -34,7 +34,7 @@
 #Game_Menu Function
     #While loop
         #1. Admin Log In
-        #2. Play Game
+        #2. Play Games
         #3. View Profile
         #4. Exit
         #game_choice is seto to a user input asking them to choose 1-3.
