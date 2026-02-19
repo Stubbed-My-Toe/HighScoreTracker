@@ -17,4 +17,4 @@
 #if highscore > than 1 
     #add to front of dictionary
 
-#then push all high scores to high scores csv
+#then push all high scores to high scores csv and save it
