@@ -12,12 +12,12 @@
    # - Save their name and score (lower tries = better) to a file called "scores.txt"
    #   Format: player_name,number_of_tries
 # SAMPLE OUTPUT
-  #  Enter your name: Alex
+  
   #  Guess a number between 1 and 100: 50
   #  Too low, try again
   #  Guess a number between 1 and 100: 75
   #  Too high, try again
   #  Guess a number between 1 and 100: 62
-  #  Congratulations Alex! You got it in 3 attempts
+  #  Congratulations (player name) ! You got it in 3 attempts
 
 #END'''
