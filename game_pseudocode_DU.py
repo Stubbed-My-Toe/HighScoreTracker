@@ -1,4 +1,4 @@
-BEGIN Guess the Number Game
+'''BEGIN Guess the Number Game
 # SETUP
     #- The computer picks a random number between 1 and 100 (player tries to guess it)
    # - Create a variable to count how many guesses the player makes
@@ -20,4 +20,4 @@ BEGIN Guess the Number Game
   #  Guess a number between 1 and 100: 62
   #  Congratulations Alex! You got it in 3 attempts
 
-#END
+#END'''
