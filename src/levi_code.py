@@ -3,11 +3,22 @@ import string, random, hashlib, json
 #create function create account
 def create_account():
     #get password and username with get info function
-    user,pas=get_info()
-    #if username already exists
-        #tell user, and attempt to log in
-    #else
-        #save password and username to file with empty spaces for highscores in the two games
+    pas,user,salt=get_info()
+    with open('docs/accounts.json','r+') as fil:
+        users=json.load(fil)
+        #if username already exists
+        if user in users:
+            #tell user, and attempt to log in
+            print('Account already exists.')
+        #else
+        else:
+            #save password and username to file with empty spaces for highscores in the two games
+            users[user]=[pas,salt,[[],[]],False]
+            fil.truncate(0)
+            fil.seek(0)
+            json.dump(users,fil)
+            print('Account created')
+
 
 #create function get info
 def get_info():
@@ -21,13 +32,12 @@ def get_info():
         #get new password from user
         pas=input('What is the new password? ')
     #call password hashing function on password
-    pas,salt=pass_hash(pas)
+    pas,salt=pass_hash(pas,''.join(random.choices(string.ascii_lowercase+string.ascii_lowercase+string.digits+string.punctuation,k=8)))
     #return hashed password and username
     return pas, user, salt
 
 #create password hashing function, get PASS
-def pass_hash(pas):
-    salt=''.join(random.choices(string.ascii_lowercase+string.ascii_lowercase+string.digits+string.punctuation,k=8))
+def pass_hash(pas,salt):
     #hash PASS
     #return PASS and salt
     return hashlib.sha256((pas+salt).encode()).hexdigest(), salt
@@ -64,19 +74,49 @@ def pass_strength(pas):
     else: return False
 
 #create function log in
-    #get user information with function call get info
+def log_in():
+    user,pas=get_info()
+    with open('docs/accounts.json','r') as fil:
+        users=json.load(fil)
     #if PASS is the same as password saved with NAME
+    if pass_hash(pas,users[user][1])==users[user][0]:
         #return True
+        return user
     #else
+    else:
         #return False
+        return False
 
 #create function remove info, get username
+def remove_info(user):
+    with open('docs/accounts.json','r+') as fil:
+        users=json.load(fil)
     #remove all information attached to (and) username
+        del users[user]
+        fil.truncate(0)
+        fil.seek(0)
+        json.dump(users,fil)
 
 #create function change info, get old username
+def change_info(user):
     #get password and username with get info function
+    npas,nuser,salt=get_info()
     #assign highscores at old password and username to new password and username
+    with open('docs/accounts.json','r+') as fil:
+        users=json.load(fil)
+        users[nuser]=[npas,salt,[[users[user][2][0]],[users[user][2][1]]],False]
+        fil.truncate(0)
+        fil.seek(0)
+        json.dump(users,fil)
     #call function remove info on old username
+    remove_info(user)
+
+def check_admin(user):
+    with open('docs/accounts.json','r') as fil:
+        users=json.load(fil)
+    if users[user][3]==True:
+        return True
+    else: return False
 
 #create function admin
     #loop
@@ -86,3 +126,5 @@ def pass_strength(pas):
             #call function remove info on username
         #else if user wants to change login information
             #call function change info on username
+
+create_account()
