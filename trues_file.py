@@ -1,5 +1,5 @@
 # True's part of Highscore Tracker
-#import levi's code
+#import Levi's code
 from levi_code import *
 #Import json
 import json
