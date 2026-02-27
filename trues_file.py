@@ -1,7 +1,11 @@
 # True's part of Highscore Tracker
+#import levi's code
+from levi_code import *
+#Import json
+import json
 
 #View Profile Function
-def view_profile():
+def view_profile(user):
     #Print What would you like to do
     print("What would you like to do?")
     #Print 1. View Your Highscores
@@ -13,14 +17,15 @@ def view_profile():
     #If User_Choice is set to 1
     if user_choice == "1":
         #Open User Profile File and show current and previous highscores.
+        with open("docs/accounts.json", "r") as fil:
+            users = json.load(fil)
+        print("Your Highscores:")
+        print("Game 1:", users[user][2][0])
+        print("Game 2:", users[user][2][0])
     #If User_Choice is set to 2
     elif user_choice == "2":
-        #username is set to an input asking user to type new username.
-        username = input("Type your new username: ")
-        #Save username in JSON file
-        #password is set to an input asking user to type new password.
-        password = input("Type your new password")
-        #Save password in JSON file
+        change_info(user)
+        print("Login Information Updated.")
 
 
 #Main Function
@@ -37,19 +42,28 @@ def main_menu():
         main_choice = input("Choose 1-3: ")
         #If Choice is set to 1
         if main_choice == "1":
-            #If Log In Returns True
-                #Run Game_Menu
-            #Else:
-                #Print Incorrect Login.
+            #Set user to login
+            user = log_in()
+            #If its successful print success
+            if user:
+                print("Login successful.")
+            #Else
+            else:
+                print("Incorrect Login")
+                #Print incorrect
         #If Choice is set to 2
         elif main_choice == "2":
             #Run Create Account
+            create_account()
         #If Choice is set to 3
+        elif main_choice == "3":
             #Print Exiting...
+            print("Exiting...")
             #Break
+            break
 
 #Game_Menu Function
-def game_menu():
+def game_menu(user):
     #While loop
     while True:
         #1. Admin Log In
@@ -64,14 +78,24 @@ def game_menu():
         game_choice = input("Choose 1-3: ")
         #If game_choice is set to 1
         if game_choice == "1":
-            #Run Admin Log In
+                #Check if admin
+            if check_admin(user):
+                #If so run admin
+                admin()
+            #Else
+            else:
+                #print you are not an admin
+                print("You are not an admin.")
+
         #If game_choice is set to 2
         elif game_choice == "2":
             #Run Game
+            print("Game Starting...")
+            #Call game
         #If game_choice is set to 3
         elif game_choice == "3":
             #Run View Profile
-            view_profile()
+            view_profile(user)
         #If game_choice is set to 4
         elif game_choice == "4":
             #Print Exiting...
