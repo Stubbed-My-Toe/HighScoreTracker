@@ -47,6 +47,7 @@ def main_menu():
             #If its successful print success
             if user:
                 print("Login successful.")
+                game_menu()
             #Else
             else:
                 print("Incorrect Login")
@@ -68,12 +69,14 @@ def game_menu(user):
     while True:
         #1. Admin Log In
         print("1. Admin Log In")
-        #2. Play Games
-        print("2. Play Games")
+        #2 Play Game 1
+        print("2. Play Game 1")
+        # Play Game 2
+        print("3. Play Game 2")
         #3. View Profile
-        print("3. View Profile")
+        print("4. View Profile")
         #4. Exit
-        print("4. Exit")
+        print("5. Exit")
         #game_choice is seto to a user input asking them to choose 1-3.
         game_choice = input("Choose 1-3: ")
         #If game_choice is set to 1
@@ -90,14 +93,18 @@ def game_menu(user):
         #If game_choice is set to 2
         elif game_choice == "2":
             #Run Game
-            print("Game Starting...")
+            print("Game 1 Starting...")
             #Call game
         #If game_choice is set to 3
         elif game_choice == "3":
-            #Run View Profile
-            view_profile(user)
+            #Run Game
+            print("Game 2 Starting")
         #If game_choice is set to 4
         elif game_choice == "4":
+            #Run View Profile
+            view_profile(user)
+        #If game_choice is set to 5
+        elif game_choice == "5":
             #Print Exiting...
             print("Exiting...")
             #Break
