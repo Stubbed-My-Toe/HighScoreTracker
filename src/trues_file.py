@@ -47,6 +47,7 @@ def main_menu():
             #If its successful print success
             if user:
                 print("Login successful.")
+                game_menu()
             #Else
             else:
                 print("Incorrect Login")
