@@ -1,3 +1,6 @@
+from levi_code import *
+from trues_file import *
+
 #Main Function
 def main_menu():
     #While loop
@@ -17,6 +20,7 @@ def main_menu():
             #If its successful print success
             if user:
                 print("Login successful.")
+                game_menu(user)
             #Else
             else:
                 print("Incorrect Login")
