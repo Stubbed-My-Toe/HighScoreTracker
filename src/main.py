@@ -35,3 +35,5 @@ def main_menu():
             print("Exiting...")
             #Break
             break
+
+main_menu()
