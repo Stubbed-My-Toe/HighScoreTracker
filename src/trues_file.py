@@ -103,3 +103,4 @@ def game_menu(user):
             #Break
             break
 
+main_menu()
