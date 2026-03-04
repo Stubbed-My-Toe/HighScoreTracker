@@ -71,8 +71,8 @@
 
 
 # END
-
-import csv
+def tic_tac():
+import json
 
 # SETUP
 print("Welcome to Tic Tac Toe!")
@@ -146,21 +146,21 @@ while moves < 9:
         print(current_name + " wins! They took " + str(moves) + " moves.")
         
         # SAVE TO CSV
-        file = open("tictactoe_scores.csv", "a")
+        file = open("tictactoe_scores.Json", "a")
         file.write(current_name + "," + str(moves) + ",Winner\n")
         file.close()
         
         # Save loser too
         if current_player == "X":
-            file = open("tictactoe_scores.csv", "a")
+            file = open("tictactoe_scores.json", "a")
             file.write(player2_name + "," + str(moves) + ",Loser\n")
             file.close()
         else:
-            file = open("tictactoe_scores.csv", "a")
+            file = open("tictactoe_scores.json", "a")
             file.write(player1_name + "," + str(moves) + ",Loser\n")
             file.close()
         
-        print("Scores saved to tictactoe_scores.csv!")
+        print("Scores saved to tictactoe_scores.json!")
         break
     
     # Switch players
@@ -177,12 +177,12 @@ if moves == 9 and not check_winner():
     print("It's a tie!")
     
     # SAVE TO CSV (tie game)
-    file = open("tictactoe_scores.csv", "a")
+    file = open("tictactoe_scores.json", "a")
     file.write(player1_name + "," + str(moves) + ",Tie\n")
     file.write(player2_name + "," + str(moves) + ",Tie\n")
     file.close()
     
-    print("Scores saved to tictactoe_scores.csv!")
+    print("Scores saved to tictactoe_scores.json!")
 
 # OPTIONAL: Show all past scores
 print("\nDo you want to see all past games? (yes/no)")
@@ -190,7 +190,7 @@ see_scores = input()
 
 if see_scores == "yes":
     try:
-        file = open("tictactoe_scores.csv", "r")
+        file = open("tictactoe_scores.json", "r")
         print("\n=== PAST GAMES ===")
         for line in file:
             parts = line.strip().split(",")
@@ -200,7 +200,7 @@ if see_scores == "yes":
     except:
         print("No scores found yet!")
 
-
+tic_tac()
 
 
 
