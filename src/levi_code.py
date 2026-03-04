@@ -22,16 +22,17 @@ def create_account():
 
 
 #create function get info
-def get_info():
+def get_info(set=True):
     #get user inputs for username and password
     user=input('What is the username? ')
     pas=input('What is the password? ')
     #loop while password is not strong (password strength function)
-    while not pass_strength(pas):
-        #display password requirements and invalid password
-        print('Weak password\nRequirements:\nMinimum 8 characters\nNeeds one of:\nUppercase letter\nLowercase letter\nNumber\nSpecial Character')
-        #get new password from user
-        pas=input('What is the new password? ')
+    if set:
+        while not pass_strength(pas):
+            #display password requirements and invalid password
+            print('Weak password\nRequirements:\nMinimum 8 characters\nNeeds one of:\nUppercase letter\nLowercase letter\nNumber\nSpecial Character')
+            #get new password from user
+            pas=input('What is the new password? ')
     #call password hashing function on password
     salt=''.join(random.choices(string.ascii_lowercase+string.ascii_lowercase+string.digits+string.punctuation,k=8))
     #return hashed password and username
@@ -76,16 +77,19 @@ def pass_strength(pas):
 
 #create function log in
 def log_in():
-    pas,user,salt=get_info()
+    pas,user,salt=get_info(False)
     with open('docs/accounts.json','r') as fil:
         users=json.load(fil)
     #if PASS is the same as password saved with NAME
-    if pass_hash(pas,users[user][1])[0]==users[user][0]:
-        #return True
-        return user
-    #else
-    else:
-        #return False
+    try:
+        if pass_hash(pas,users[user][1])[0]==users[user][0]:
+            #return True
+            return user
+        #else
+        else:
+            #return False
+            return False
+    except:
         return False
 
 #create function remove info, get username
