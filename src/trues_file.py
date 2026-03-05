@@ -1,4 +1,5 @@
 # True's part of Highscore Tracker
+#import darins code
 #import levi's code
 from levi_code import *
 #Import json
@@ -34,7 +35,9 @@ def game_menu(user):
         #1. Admin Log In
         print("1. Admin Log In")
         #2. Play Games
-        print("2. Play Games")
+        print("2. Play Tic Tac Toe")
+
+        print("3. Guess the Number")
         #3. View Profile
         print("3. View Profile")
         #4. Exit
@@ -56,13 +59,17 @@ def game_menu(user):
         elif game_choice == "2":
             #Run Game
             print("Game Starting...")
+        #If game_choice is set to 2
+        elif game_choice == "3":
+            #Run Game
+            print("Game Starting...")    
             #Call game
         #If game_choice is set to 3
-        elif game_choice == "3":
+        elif game_choice == "4":
             #Run View Profile
             view_profile(user)
         #If game_choice is set to 4
-        elif game_choice == "4":
+        elif game_choice == "5":
             #Print Exiting...
             print("Exiting...")
             #Break
