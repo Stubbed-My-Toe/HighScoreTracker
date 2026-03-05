@@ -136,7 +136,7 @@ def admin():
                 print(f'{i}. {list(users.keys())[i]}')
         #have user select a username
         slct=input('Select account, or anything else to exit: ')
-        if slct not in [str(x) for x in range(len(users))]:
+        if slct not in [str(x) for x in range(len(users))] and slct!='0':
             break
         choice=input('1. Delete account\n2. Modify account login information\n')
         #if user wants to delete:
