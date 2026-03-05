@@ -41,11 +41,11 @@ def game_menu(user):
 
         print("3. Guess the Number")
         #3. View Profile
-        print("3. View Profile")
+        print("4. View Profile")
         #4. Exit
-        print("4. Exit")
+        print("5. Exit")
         #game_choice is seto to a user input asking them to choose 1-3.
-        game_choice = input("Choose 1-3: ")
+        game_choice = input("Choose 1-5: ")
         #If game_choice is set to 1
         if game_choice == "1":
                 #Check if admin
