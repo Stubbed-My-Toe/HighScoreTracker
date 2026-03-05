@@ -23,8 +23,8 @@ def view_profile(user):
         with open("docs/accounts.json", "r") as fil:
             users = json.load(fil)
         print("Your Highscores:")
-        print("Game 1:", users[user][2][0])
-        print("Game 2:", users[user][2][0])
+        print("Tic Tac Toe:", users[user][2][0])
+        print("Guess the Number:", users[user][2][0])
     #If User_Choice is set to 2
     elif user_choice == "2":
         change_info(user)
