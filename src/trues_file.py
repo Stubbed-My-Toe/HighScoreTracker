@@ -1,5 +1,7 @@
 # True's part of Highscore Tracker
 #import darins code
+from tic_tac import tic_tac
+from GTnumber import game
 #import levi's code
 from levi_code import *
 #Import json
@@ -59,11 +61,13 @@ def game_menu(user):
         elif game_choice == "2":
             #Run Game
             print("Game Starting...")
+            tic_tac()
         #If game_choice is set to 2
         elif game_choice == "3":
             #Run Game
             print("Game Starting...")    
             #Call game
+            game()
         #If game_choice is set to 3
         elif game_choice == "4":
             #Run View Profile
