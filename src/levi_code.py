@@ -126,13 +126,14 @@ def check_admin(user):
 
 #create function admin
 def admin():
-    with open('docs/accounts.json','r') as fil:
-        users=json.load(fil)
     #loop
     while True:
+        with open('docs/accounts.json','r') as fil:
+            users=json.load(fil)
         #loop through and display usernames
         for i in range(len(users)):
-            print(f'{i}. {users.keys()[i]}')
+            if i != 'admin':
+                print(f'{i}. {list(users.keys())[i]}')
         #have user select a username
         slct=input('Select account, or anything else to exit: ')
         if slct not in [str(x) for x in range(len(users))]:
@@ -141,8 +142,8 @@ def admin():
         #if user wants to delete:
         if choice=='1':
             #call function remove info on username
-            remove_info(users.keys()[int(slct)])
+            remove_info(list(users.keys())[int(slct)])
         elif choice=='2':
         #else if user wants to change login information
             #call function change info on username
-            change_info(users.keys()[int(slct)])
+            change_info(list(users.keys())[int(slct)])
