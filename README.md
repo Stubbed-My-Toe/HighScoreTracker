@@ -1,6 +1,7 @@
 # High Score Tracker
 ***
-![Image of code while running](location of image in folders)
+![Starting login menu](docs/image.png)
+
 This project allows you to play either tic tac toe or a number guessing game and it saves your score to your personal scores and, if it is good enough, to the top 10 leaderboard. You can view your scores, view the top 10 scores, or change your login information. An admin account can delete accounts or modify their login information.
 
 ## Use Instructions
