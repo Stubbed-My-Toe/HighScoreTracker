@@ -73,14 +73,10 @@
 # END
 def tic_tac():
    import json
-   
+   import random
    # SETUP
    print("Welcome to Tic Tac Toe!")
-   
-   # Ask for player names
-   player1_name = input("Enter Player X's name: ")
-   player2_name = input("Enter Player O's name: ")
-   
+   player1_name = "You"
    # Create the board (1-9 positions)
    board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
    
@@ -88,7 +84,7 @@ def tic_tac():
    moves = 0
    current_player = "X"
    current_name = player1_name
-   
+   player2_name = 'opponent'
    # Function to show the board
    def show_board():
        print("\n" + board[0] + " | " + board[1] + " | " + board[2])
@@ -143,14 +139,7 @@ def tic_tac():
        # Check for winner
        if check_winner():
            # END OF GAME - WINNER
-           print(current_name + " wins! They took " + str(moves) + " moves.")
-           
-           # SAVE TO CSV
-           file = open("tictactoe_scores.Json", "a")
-           file.write(current_name + "," + str(moves) + ",Winner\n")
-           file.close()
-           
-          
+           print(current_name + " wins! They took " + str(moves) + " moves. This is your score!")
            
            break
        
