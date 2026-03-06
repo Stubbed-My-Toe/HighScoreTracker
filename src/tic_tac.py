@@ -150,17 +150,8 @@ def tic_tac():
            file.write(current_name + "," + str(moves) + ",Winner\n")
            file.close()
            
-           # Save loser too
-           if current_player == "X":
-               file = open("tictactoe_scores.json", "a")
-               file.write(player2_name + "," + str(moves) + ",Loser\n")
-               file.close()
-           else:
-               file = open("tictactoe_scores.json", "a")
-               file.write(player1_name + "," + str(moves) + ",Loser\n")
-               file.close()
+          
            
-           print("Scores saved to tictactoe_scores.json!")
            break
        
        # Switch players
