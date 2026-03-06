@@ -150,17 +150,8 @@ def tic_tac():
            file.write(current_name + "," + str(moves) + ",Winner\n")
            file.close()
            
-           # Save loser too
-           if current_player == "X":
-               file = open("tictactoe_scores.json", "a")
-               file.write(player2_name + "," + str(moves) + ",Loser\n")
-               file.close()
-           else:
-               file = open("tictactoe_scores.json", "a")
-               file.write(player1_name + "," + str(moves) + ",Loser\n")
-               file.close()
+          
            
-           print("Scores saved to tictactoe_scores.json!")
            break
        
        # Switch players
@@ -175,31 +166,6 @@ def tic_tac():
    if moves == 9 and not check_winner():
        # END OF GAME - TIE
        print("It's a tie!")
-       
-       # SAVE TO CSV (tie game)
-       file = open("tictactoe_scores.json", "a")
-       file.write(player1_name + "," + str(moves) + ",Tie\n")
-       file.write(player2_name + "," + str(moves) + ",Tie\n")
-       file.close()
-       
-       print("Scores saved to tictactoe_scores.json!")
-   
-   # OPTIONAL: Show all past scores
-   print("\nDo you want to see all past games? (yes/no)")
-   see_scores = input()
-   
-   if see_scores == "yes":
-       try:
-           file = open("tictactoe_scores.json", "r")
-           print("\n=== PAST GAMES ===")
-           for line in file:
-               parts = line.strip().split(",")
-               if len(parts) == 3:
-                   print(parts[0] + " - " + parts[1] + " moves - " + parts[2])
-           file.close()
-       except:
-           print("No scores found yet!")
-
 
 
 
