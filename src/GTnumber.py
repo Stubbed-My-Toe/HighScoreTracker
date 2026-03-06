@@ -25,6 +25,7 @@ def game():
         if guess == secret_number:
             # END OF GAME
             print("Yor score was " + str(guesses))
+            break
             
         # Give hints if wrong
         elif guess < secret_number:
@@ -34,4 +35,4 @@ def game():
             print("Too high, try again")
 
 
-    #can be saved to JSON FILE
+    return guesses

@@ -155,6 +155,9 @@ def tic_tac():
    if moves == 9 and not check_winner():
        # END OF GAME - TIE
        print("It's a tie!")
+       return 10
+   else:
+       return moves
 
 
 
