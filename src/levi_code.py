@@ -147,3 +147,18 @@ def admin():
         #else if user wants to change login information
             #call function change info on username
             change_info(list(users.keys())[int(slct)])
+
+#create function account highscore, get username and highscore, game
+def account_score(user,score,game):
+    with open('docs/accounts.json','r+') as fil:
+        users=json.load(fil)
+        if game==1:
+            users[user][2][0].append(score)
+        elif game==2:
+            users[user][2][1].append(score)
+    #save highscore to appropriate location in user account
+        fil.truncate(0)
+        fil.seek(0)
+        json.dump(users,fil)
+
+#create function get_scores
