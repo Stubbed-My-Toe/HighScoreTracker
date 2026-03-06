@@ -1,4 +1,6 @@
 # True's part of Highscore Tracker
+#import isaacs code
+from update_high_scores import *
 #import darins code
 from tic_tac import tic_tac
 from GTnumber import game
@@ -56,18 +58,21 @@ def game_menu(user):
             else:
                 #print you are not an admin
                 print("You are not an admin.")
-
         #If game_choice is set to 2
         elif game_choice == "2":
             #Run Game
             print("Game Starting...")
-            tic_tac()
+            score = tic_tac()
+            add_score(user,score, "docs\ttc_scores.csv")
+            show_scores()
         #If game_choice is set to 2
         elif game_choice == "3":
             #Run Game
             print("Game Starting...")    
             #Call game
-            game()
+            score = game()
+            add_score(user,score,"docs\gtn_scores.csv")
+            show_scores()
         #If game_choice is set to 3
         elif game_choice == "4":
             #Run View Profile
