@@ -26,7 +26,7 @@ def view_profile(user):
             users = json.load(fil)
         print("Your Highscores:")
         print("Tic Tac Toe:", users[user][2][0])
-        print("Guess the Number:", users[user][2][0])
+        print("Guess the Number:", users[user][2][1])
     #If User_Choice is set to 2
     elif user_choice == "2":
         change_info(user)
@@ -64,6 +64,7 @@ def game_menu(user):
             print("Game Starting...")
             score = tic_tac()
             add_score(user,score, "docs\ttc_scores.csv")
+            account_score(user, score, 1)
             show_scores()
         #If game_choice is set to 2
         elif game_choice == "3":
@@ -72,6 +73,7 @@ def game_menu(user):
             #Call game
             score = game()
             add_score(user,score,"docs\gtn_scores.csv")
+            account_score(user, score, 2)
             show_scores()
         #If game_choice is set to 3
         elif game_choice == "4":
