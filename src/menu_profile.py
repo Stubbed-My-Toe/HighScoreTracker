@@ -5,7 +5,7 @@ from update_high_scores import *
 from tic_tac import tic_tac
 from GTnumber import game
 #import levi's code
-from levi_code import *
+from accounts import *
 #Import json
 import json
 
@@ -25,8 +25,13 @@ def view_profile(user):
         with open("docs/accounts.json", "r") as fil:
             users = json.load(fil)
         print("Your Highscores:")
-        print("Tic Tac Toe:", users[user][2][0])
-        print("Guess the Number:", users[user][2][1])
+        print("Tic Tac Toe:",end=' ')
+        for x in users[user][2][0]:
+            print(x, end=', ')
+        print("\nGuess the Number:", end=' ')
+        for x in users[user][2][1]:
+            print(x, end=', ')
+        print('\n')
     #If User_Choice is set to 2
     elif user_choice == "2":
         change_info(user)
@@ -63,7 +68,7 @@ def game_menu(user):
             #Run Game
             print("Game Starting...")
             score = tic_tac()
-            add_score(user,score, "docs\ttc_scores.csv")
+            add_score(user,score, "docs/ttc_scores.csv")
             account_score(user, score, 1)
             show_scores()
         #If game_choice is set to 2
@@ -72,7 +77,7 @@ def game_menu(user):
             print("Game Starting...")    
             #Call game
             score = game()
-            add_score(user,score,"docs\gtn_scores.csv")
+            add_score(user,score,"docs/gtn_scores.csv")
             account_score(user, score, 2)
             show_scores()
         #If game_choice is set to 3
